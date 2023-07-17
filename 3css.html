@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animacija</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+body {
+  background-color: #050210;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  position: relative;
+}
+
+.circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: linear-gradient(to right, #fb5dad, #55fb9f, #b97aff);
+  animation: pulse 2s linear infinite;
+  filter: drop-shadow(0 0 10px rgba(251, 93, 173, 0.7));
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.circle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: linear-gradient(to right, rgba(251, 93, 173, 0.3), rgba(85, 251, 159, 0.3), rgba(185, 122, 255, 0.3));
+  animation: rotate 5s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="circle"></div>
+  </div>
+</body>
+</html>
